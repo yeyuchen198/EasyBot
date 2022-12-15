@@ -13,14 +13,14 @@ RUN unzip html.zip -d html
 COPY EasyBot /tmp/EasyBot
 RUN install -m 755 /tmp/EasyBot /usr/bin/EasyBot
 RUN rm /tmp/EasyBot
-RUN /usr/bin/EasyBot -config=/etc/EasyBot/app.json
+# RUN /usr/bin/EasyBot -config=/etc/EasyBot/app.json
 
 
 EXPOSE 10000
 
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
 # nginx -g 'daemon off;'
 
-# ADD app.sh /
-# RUN chmod +x /app.sh
-# CMD /app.sh
+ADD app.sh /
+RUN chmod +x /app.sh
+CMD /app.sh
